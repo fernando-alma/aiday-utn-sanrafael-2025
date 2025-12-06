@@ -420,6 +420,123 @@ section {
     transform: translateY(-2px);
 }
 
+/* --- AI COMMUNITY CTA --- */
+
+.ai-community-full {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        var(--color-primary) 100%
+    );
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--color-text-light);
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.ai-community-full-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ai-community-illustration img {
+    width: 220px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.3));
+}
+
+.ai-community-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(
+        135deg,
+        var(--color-text-light) 0%,
+        var(--color-secondary) 50%,
+        var(--color-primary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ai-community-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-dim);
+    margin-bottom: 2.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ai-community-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ai-btn-primary {
+    background: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.ai-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+}
+
+.ai-btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--color-text-light);
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.ai-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsive para AI Community */
+@media (max-width: 768px) {
+    .ai-community-full {
+        padding: 3rem 1rem;
+        margin: 2rem 0;
+    }
+    
+    .ai-community-title {
+        font-size: 1.8rem;
+    }
+    
+    .ai-community-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ai-btn-primary,
+    .ai-btn-secondary {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
 
 /* --- Forms (Common to Login, Register, Recover, Project Create) --- */
 

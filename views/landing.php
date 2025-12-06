@@ -22,7 +22,7 @@
             </a>
         </div>
     </section>
-    
+
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
@@ -204,7 +204,7 @@
     </section>
     
     <hr style="border-color: rgba(255,255,255,0.1); max-width: 1000px; margin: 0 auto; opacity: 0.3;">
-    
+
     <section class="cta-ready">
         <div class="container">
             <h2 class="cta-ready-title">¿Listo para innovar?</h2>
@@ -214,6 +214,28 @@
         </div>
     </section>
 
+    
+
+    <section class="ai-community-full">
+        <div class="ai-community-full-content">
+            <div class="ai-community-illustration">
+                <img src="./public/images/ai-community.png" alt="AI Comunidad">
+            </div>
+            
+            <h2 class="ai-community-title">AiComunidad</h2>
+
+            <p class="ai-community-subtitle">
+            Conéctate con miles de entusiastas de la IA, desarrolladores e innovadores. 
+            Asiste a eventos, participa en hackathons y construye el futuro juntos.
+            </p>
+
+            <div class="ai-community-buttons">
+                <a href="register" class="ai-btn-primary">Únete Ahora</a>
+                <a href="community" class="ai-btn-secondary">Conoce Más</a>
+            </div>
+        </div>
+    </section>
+    
     <?php require_once("components/nav.php"); ?>
 </body>
 </html>
