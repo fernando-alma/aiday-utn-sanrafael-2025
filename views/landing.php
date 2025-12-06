@@ -158,7 +158,7 @@
     <section class="community-section">
         <div class="container">
             <div class="community-header">
-                <h2 class="section-title">Comunidad Colaboradora</h2>
+                <h2 class="section-title">Speakers</h2>
                 <p class="community-subtitle">Conoce a nuestros expertos, speakers y mentores.</p>
             </div>
             
