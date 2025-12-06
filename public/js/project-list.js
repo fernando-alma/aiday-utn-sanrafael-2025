@@ -4,15 +4,17 @@ const CURRENT_SLUG = "hola";
 document.addEventListener("DOMContentLoaded", () => {
   const allProjectsGrid = document.getElementById("allProjectsGrid");
   const paginationControls = document.getElementById("paginationControls");
+  const initLoader = loader()
+  initLoader.show();
+  
   let currentPage = 1;
   const projectsPerPage = 6;
   let cachedProjects = [];
 
   async function fetchDashboardsAndProjects() {
     try {
-      allProjectsGrid.innerHTML = "<p>Cargando proyectos...</p>";
       const dashboardsResp = await fetch(`${API_BASE}dashboards`);
-      if (!dashboardsResp.ok) {
+      if (!dashboardsResp.ok) {ss
         throw new Error(`Error dashboards ${dashboardsResp.status}`);
       }
       const dashboardsData = await dashboardsResp.json();
@@ -32,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         firstDashboard.id ||
         "";
       if (!slug) {
+        
         allProjectsGrid.innerHTML =
           "<p>No se pudo determinar el slug del dashboard.</p>";
         return;
@@ -45,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       const projectsData = await projectsResp.json();
       if (!projectsData.success || !Array.isArray(projectsData.data)) {
+        
         allProjectsGrid.innerHTML = "<p>Error al cargar proyectos.</p>";
         return;
       }
@@ -54,8 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
       renderPage();
     } catch (error) {
       console.error("Error fetching dashboards/projects:", error);
+      
       allProjectsGrid.innerHTML =
         "<p>No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.</p>";
+    } finally {
+      initLoader.hide();
     }
   }
 
@@ -124,8 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   project.id
                 )}" class="btn-ver-mas">Ver detalles</a>
             `;
-      projectImg.src = project.url || "public/images/los_reyunos.png";
+      
+      projectImg.src = project.image || "public/images/los_reyunos.png";
       const firstChildProject = projectCard.querySelector(".project-header");
+      
       firstChildProject.appendChild(projectImg);
       allProjectsGrid.appendChild(projectCard);
     });
@@ -183,5 +192,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/'/g, "&#039;");
   }
 
+  function loader() {
+    const loaderContainer = document.createElement("div");
+    loaderContainer.classList.add("loader-container");
+    loaderContainer.innerHTML = `<svg 
+    xmlns="http://www.w3.org/2000/svg"
+     width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" 
+    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle-icon lucide-loader-circle">
+    <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+    </svg>`;
+    return {
+      show() {
+        document.body.appendChild(loaderContainer);
+      },
+      hide() {
+        loaderContainer.remove();
+      }
+    };
+  };
+  
   fetchDashboardsAndProjects();
 });
