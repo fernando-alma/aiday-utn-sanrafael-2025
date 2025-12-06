@@ -201,7 +201,7 @@
                     title=""
                     >
                     <img
-                        src="public/images/logo_alpha_docere.png"
+                        src="public/images/alfa-vertical.png"
                         alt=""
                     />
                     </a>
@@ -241,7 +241,7 @@
                     title=""
                     >
                     <img
-                        src="public/images/logo_alpha_docere.png"
+                        src="public/images/alfa-vertical.png"
                         alt=""
                     />
                     </a>
