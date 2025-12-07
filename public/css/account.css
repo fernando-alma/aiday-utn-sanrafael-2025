@@ -106,7 +106,6 @@ body {
 .desktop-nav-right .nav-link:hover {
     color: #00bcd4;
     background: rgba(0, 187, 212, 0);
-    transform: translateY(-2px);
 }
 
 .desktop-nav .nav-link.active,
@@ -317,7 +316,6 @@ body {
 
 .submit-button:hover {
     background: linear-gradient(90deg, #ff007a, #7b2ff7);
-    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
 }
 
@@ -332,7 +330,6 @@ body {
     border-color: #ffffff;
     color: #ffffff;
     background: linear-gradient(90deg, #ff007a, #7b2ff7);
-    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
 }
 
@@ -1237,7 +1234,6 @@ body {
     background: linear-gradient(90deg, #ff0000);
     color: #ffffff;
     border-color: #ffffff;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
 }
 
@@ -1257,7 +1253,6 @@ body {
 
 .logout-modal-confirm-btn:hover {
     background: linear-gradient(90deg, #ff007a, #7b2ff7);
-    transform: translateY(-1px);
     box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
 }
 

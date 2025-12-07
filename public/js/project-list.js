@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost/Hackdash-aiweekend/backend/public/";
+const API_BASE = "http://localhost/Hackdash-aiweekend/backend/public";
 const CURRENT_SLUG = "hola";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let cachedProjects = [];
 
   async function fetchDashboardsAndProjects() {
+    const errorContainer = document.createElement("p");
+    errorContainer.classList.add("error-container");
+    document.body.appendChild(errorContainer);
     try {
-      const dashboardsResp = await fetch(`${API_BASE}dashboards`);
+      const dashboardsResp = await fetch(`${API_BASE}/dashboards`);
       if (!dashboardsResp.ok) {ss
         throw new Error(`Error dashboards ${dashboardsResp.status}`);
       }
@@ -23,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         !Array.isArray(dashboardsData.data) ||
         dashboardsData.data.length === 0
       ) {
-        allProjectsGrid.innerHTML = "<p>No hay dashboards disponibles.</p>";
+        errorContainer.innerText = "No hay dashboards disponibles."
+        allProjectsGrid.innerHTML = errorContainer;
         return;
       }
 
@@ -59,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error fetching dashboards/projects:", error);
       
-      allProjectsGrid.innerHTML =
-        "<p>No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.</p>";
+      errorContainer.innerText = "No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.";
+      allProjectsGrid.innerHTML = errorContainer.innerText;
     } finally {
       initLoader.hide();
     }
