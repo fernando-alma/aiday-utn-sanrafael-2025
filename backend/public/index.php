@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // La base del path para la API (ajusta si tu URL base es diferente)
-$basePath = '/fusion-proyecto/backend/public';
+$basePath = '/aiday-utn-sanrafael-2025-fullstack/backend/public';
 
 // Cargar las definiciones de rutas
 $routes = require_once __DIR__ . '/../app/Routes/api.php';

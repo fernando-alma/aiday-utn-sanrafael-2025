@@ -4,7 +4,7 @@ require_once __DIR__ . '/autoload.php';
 require_once __DIR__ . '/Router.php';
 
 // Define the base path for the frontend
-$basePath = '/fusion-proyecto';
+$basePath = '/aiday-utn-sanrafael-2025-fullstack';
 // $basePath = '';
 
 // Cargar las definiciones de rutas
