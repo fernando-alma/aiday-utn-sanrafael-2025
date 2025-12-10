@@ -6,7 +6,11 @@
     <title>Evento AIWKND Mendoza 2025</title>
     <link rel="stylesheet" href="public/css/styles.css">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link rel="stylesheet" href="public/css/marquee.css">
+=======
+    <link rel="stylesheet" href="public/css/landing.css">
+>>>>>>> origin/Feature/modificacion-card-speaker/05-12-25
 </head>
 <body>
     
@@ -236,6 +240,7 @@
         <hr style="border-color: rgba(255,255,255,0.1); max-width: 1000px; margin: 0 auto; opacity: 0.3;">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <section class="community-section">
         <div class="container">
             <div class="community-header">
@@ -420,8 +425,145 @@
                 </div>
             </div>
 <<<<<<< HEAD
+=======
+   <section class="community-section">    <!--Aca arranca la seccion Agus :D  -->
+    <div class="container">
+        <div class="community-header">
+            <h2 class="section-title">Speakers</h2>
+            <p class="community-subtitle">Conoce a nuestros expertos, speakers y mentores.</p>
+>>>>>>> origin/Feature/modificacion-card-speaker/05-12-25
         </div>
-    </section>
+        
+        <div class="community-tabs">
+            <div class="community-tab active">Organizadores</div>
+            <div class="community-tab">Speakers</div>
+            <div class="community-tab">Mentores</div>
+        </div>
+        
+        <div class="collaborators-grid">
+            <div class="collaborator-card">
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=5" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Dr. Aisha Patel</h3>
+                    <div class="collaborator-role">Chief AI Scientist</div>
+                    <div class="collaborator-company">TechVision AI</div>
+                    
+                    <p class="collaborator-bio">
+                        Leading researcher in neural architecture search and automated machine learning.
+                    </p>
+                    
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collaborator-card">
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=12" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Juan Pérez</h3>
+                    <div class="collaborator-role">Full Stack Dev</div>
+                    <div class="collaborator-company">Mercado Libre</div>
+                    <p class="collaborator-bio">
+                        Especialista en escalabilidad y arquitectura de software distribuido.
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+             
+<div class="collaborator-card">
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=9" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Sofía Martínez</h3>
+                    <div class="collaborator-role">Venture Capitalist</div>
+                    <div class="collaborator-company">Mendoza Ventures</div>
+                    <p class="collaborator-bio">
+                        Inversora ángel enfocada en startups de IA en Latinoamérica. Ayuda a escalar proyectos tecnológicos emergentes.
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collaborator-card">
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=11" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Lucas Gómez</h3>
+                    <div class="collaborator-role">Ingeniero Agrónomo & Dev</div>
+                    <div class="collaborator-company">AgroTech Solutions</div>
+                    <p class="collaborator-bio">
+                        Pionero en el uso de visión por computadora y drones para la optimización de viñedos y cultivos en Cuyo.
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collaborator-card">
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=24" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Dra. Elena Torres</h3>
+                    <div class="collaborator-role">Investigadora Ética</div>
+                    <div class="collaborator-company">Open AI Institute</div>
+                    <p class="collaborator-bio">
+                        Especialista en sesgos algorítmicos y responsabilidad social en el desarrollo de modelos de lenguaje grandes (LLMs).
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collaborator-card">
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=53" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Martín Vega</h3>
+                    <div class="collaborator-role">Lead Data Engineer</div>
+                    <div class="collaborator-company">Cloud Systems</div>
+                    <p class="collaborator-bio">
+                        Arquitecto de soluciones Big Data. Experto en procesamiento de datos en tiempo real y optimización de nube.
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+          <!--  <div class="collaborator-card">      OPTATIVO PARA AGREGAR PREGUNAT CUANTOSN ORGANIZADORERS SON , SI SON MAS HAY QUE ARREGLAR EL CSS [css/landing.css]
+                <div class="card-image-container">
+                    <img src="https://i.pravatar.cc/400?img=49" alt="Foto de perfil" class="collaborator-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="collaborator-name">Valentina Ruiz</h3>
+                    <div class="collaborator-role">AI Product Manager</div>
+                    <div class="collaborator-company">Future UX</div>
+                    <p class="collaborator-bio">
+                        Diseñadora de experiencias conversacionales. Puente entre las necesidades humanas y las capacidades de la IA.
+                    </p>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>   -->
+          
+    </div>                <!--Aca termina :D  -->
+</section>
     
     <hr style="border-color: rgba(255,255,255,0.1); max-width: 1000px; margin: 0 auto; opacity: 0.3;">
 
