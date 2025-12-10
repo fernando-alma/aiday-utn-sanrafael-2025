@@ -1,141 +1,338 @@
-/* Project Catalog Styles */
+:root {
+  /* New Global Colors */
+  --color-background: #1e2466; /* New requested deep blue */
+  --color-primary: #ec4899; /* Purple */
+  --color-secondary: #ec4899; /* Pink */
+  --color-accent: #ec4899; /* Pink */
+  --color-text-light: #ffffff;
+  --color-text-dim: #cccccc;
+  --color-card-bg: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-btn: #ce47eb;
+}
 
-.projects-section {
-    min-height: 100vh;
-    padding: 6rem 1rem 2rem;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(to bottom, #1e2466, #181818);
+  color: var(--color-text-light);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* --- Navigation (Top and Bottom) --- */
+
+/* Top Navigation Bar */
+.navbar {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black for the top bar */
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  width: 120px;
+  height: 30px;
+  filter: invert(100%);
+}
+
+.nav-button {
+  background: #ce47eb;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  opacity: 0.8;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem 0;
+  border-top: 1px solid #222;
+  z-index: 999;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s;
+  font-size: 0.8rem;
+}
+
+.bottom-nav-item.active {
+  color: var(--color-accent);
+}
+
+.bottom-nav-item:hover {
+  color: var(--color-accent);
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Search bar */
+.search-bar {
+  position: relative;
+  width: 640px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 42px auto;
+  justify-content: center;
+}
+
+.search-bar div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.search-bar input[type="search"] {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 1rem;
+  padding: 1rem 0.5rem;
+  color: var(--text);
+  border: 1px solid #ce47eb;
+  border-radius: 999px;
+}
+
+.search-bar input:focus {
+  outline: 1px solid #ce47eb;
+  filter: drop-shadow(0 0 6px #ce47eb);
+}
+
+.search-bar input::placeholder {
+  color: var(--muted);
+  margin-left: 16px;
+}
+
+.search-btn {
+  padding: 1rem 2rem;
+  border: 0;
+  background: var(--color-btn);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  border-radius: 999px;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.search-btn:active {
+  transform: scale(0.98);
+}
+.search-btn:hover {
+  opacity: 0.9;
+}
+
+.suggestions {
+  margin: 0.5rem 0 0 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  max-height: 220px;
+  overflow: auto;
+  border-radius: 0;
+}
+
+.suggestions li {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 0.4rem;
+  }
+  .search-bar input {
+    font-size: 0.95rem;
+  }
+}
+
+/* Project Catalog Styles */
+.container {
+  max-width: 1200px;
+  height: 100dvh;
+  margin: 5rem auto;
+  padding: 0 1rem;
+}
+
+.projects-title {
+  font-size: 2.3rem;
+  text-align: center;
+  margin: 16px 0;
 }
 
 .projects-grid {
-    display: grid;
-    /* Default to 1 column on small screens for catalog view */
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .project-card {
-    background: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; 
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #1f1f1f;
+  position: relative;
+  border: 1px solid #444;
+  border-radius: 12px;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-bottom: 6px solid #ce47eb;
+  overflow: hidden;
 }
 
 .project-card:hover {
-    transform: translateY(-5px); 
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-header {
+  width: 100%;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
 }
 
 .project-card h3 {
-    font-size: 1.3rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
 .project-card p {
-    color: var(--color-text-dim);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    flex-grow: 1; /* Pushes meta and button to the bottom */
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes meta and button to the bottom */
 }
 
 .project-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 16px;
 }
 
 .status-completed {
-    color: #4CAF50; /* Green */
-    font-weight: 600;
-    font-size: 0.85rem;
+  color: #4caf50; /* Green */
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
 .status-in-progress {
-    color: #FFC107; /* Yellow */
-    font-weight: 600;
-    font-size: 0.85rem;
+  color: #ffc107; /* Yellow */
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
 .dashboard-link a {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-size: 0.85rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.85rem;
 }
 
 .dashboard-link a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .btn-ver-mas {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0ea5e9 100%);
-    color: var(--color-text-light);
-    border: none;
-    padding: 0.75rem 1.5rem; 
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    display: block; /* Full width button */
-    margin-top: 1rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+  background: #ce47eb;
+  width: fit-content;
+  margin: 0 auto;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  margin-block: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.3s;
 }
 
 .btn-ver-mas:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  opacity: 0.8;
 }
 
 /* Pagination (Kept from original) */
 .pagination-controls {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .pagination-button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: var(--color-text-light);
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--color-text-light);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .pagination-button.active {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0ea5e9 100%);
-    border-color: var(--color-accent);
-    font-weight: bold;
-}
-
-
-/* --- Responsive Design (Project List Specific) --- */
-
-@media (min-width: 768px) {
-    /* Project Grid for Catalog View on Tablet/Desktop */
-    .projects-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
-        gap: 2rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    /* Project Grid for Catalog View on Large Desktop */
-    .projects-grid {
-        grid-template-columns: 1fr 1fr 1fr; /* 3 columns on large desktop */
-    }
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0ea5e9 100%);
+  border-color: var(--color-accent);
+  font-weight: bold;
 }

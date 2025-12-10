@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 const API_BASE = 'http://localhost/Hackdash-aiweekend/backend/public/';
 const CURRENT_SLUG = "hola";
+=======
+const API_BASE = "http://localhost/Hackdash-aiweekend/backend/public/";
+const CURRENT_SLUG = CONFIG.SLUG;
+>>>>>>> origin/Feature/carrousel-logos/2025-12-05
 
 
 document.addEventListener("DOMContentLoaded", () => {

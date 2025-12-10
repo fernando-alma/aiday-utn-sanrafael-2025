@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento AIWKND Mendoza 2025</title>
     <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="public/css/marquee.css">
 </head>
 <body>
     
@@ -160,6 +161,93 @@
             <div class="community-header">
                 <h2 class="section-title">Speakers</h2>
                 <p class="community-subtitle">Conoce a nuestros expertos, speakers y mentores.</p>
+            </div>
+
+            <div class="helpers-logos">
+                <div id="marquee">
+                   <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/aiwkndlogo.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/utn-bg-remove.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/aiwkndlogo.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/alfa-vertical.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/aiwkndlogo.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/utn-bg-remove.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/aiwkndlogo.png"
+                        alt=""
+                    />
+                    </a>
+                    <a
+                    href="#"
+                    target="_blank"
+                    title=""
+                    >
+                    <img
+                        src="public/images/alfa-vertical.png"
+                        alt=""
+                    />
+                    </a>
+                </div>
+                <div class="shadow__right"></div>
+                <div class="shadow__left"></div>
             </div>
             
             <div class="community-tabs">
