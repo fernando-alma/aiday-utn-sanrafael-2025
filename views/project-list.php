@@ -6,6 +6,7 @@
     <title>Proyectos</title>
     <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/project-list.css"> 
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
 
@@ -25,6 +26,7 @@
     </section>
 
     <?php require_once("components/nav.php"); ?>
+    <?php require_once ("components/footer.php"); ?> 
 
     <script src="public/js/project-list.js"></script>
 </body>

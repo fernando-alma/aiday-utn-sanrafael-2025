@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Error 404 - Página no encontrada</title>
   <link rel="stylesheet" href="public/css/not-found.css">
+  <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
   <!-- Error 404 Section -->
@@ -21,5 +22,6 @@
   </section>
 
   <?php require_once("components/nav.php"); ?>
+  <?php require_once ("components/footer.php"); ?>
 </body>
 </html>

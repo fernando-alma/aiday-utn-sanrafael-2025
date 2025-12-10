@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restablecer contraseña</title>
     <link rel="stylesheet" href="public/css/recover-password.css">
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
     <div class="container">
@@ -55,6 +56,7 @@
         </nav>
         
         <?php require_once("components/nav.php"); ?>
+        <?php require_once ("components/footer.php"); ?>
     </div>
     <script src="public/js/config.js"></script>
     <script src="public/js/session-check.js"></script>

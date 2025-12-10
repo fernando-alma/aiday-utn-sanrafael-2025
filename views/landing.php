@@ -6,7 +6,7 @@
     <title>Evento AIWKND Mendoza 2025</title>
     <link rel="stylesheet" href="public/css/styles.css">
     
-    <link rel="stylesheet" href="public/css/footer.css"> 
+<link rel="stylesheet" href="public/css/footer.css"> 
 
     <style>
         body {
@@ -230,8 +230,8 @@
             </div>
         </section>
 
-    </div><?php include 'components/footer.php'; ?> 
-
-    <?php require_once("components/nav.php"); ?>
+    </div>
+      <?php require_once("components/nav.php"); ?>
+      <?php require_once ("components/footer.php"); ?>
 </body>
 </html>
