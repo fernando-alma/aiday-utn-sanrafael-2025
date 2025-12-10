@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIWKND - Acceder</title>
     <link rel="stylesheet" href="public/css/login.css">
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
     <div class="container">
@@ -61,13 +62,8 @@
                 </div>
             </form>
         </main>
-        
-        <!-- Desktop Bottom Nav -->
-        <nav class="desktop-bottom-nav">
-            <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND" class="desktop-bottom-logo">
-        </nav>
-        
         <?php require_once("components/nav.php"); ?>
+        <?php require_once ("components/footer.php"); ?>
     </div>
     
     <script src="public/js/login.js"></script>

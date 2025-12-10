@@ -6,6 +6,7 @@
     <title>Crear proyecto</title>
     <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/project-create.css">
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
 
@@ -59,9 +60,17 @@
             </form>
         </div>
     </section>
+<<<<<<< HEAD
 
     <?php require_once("components/nav.php"); ?>
     
+=======
+        <?php require_once("components/nav.php"); ?>
+        <?php require_once ("components/footer.php"); ?>
+    </div>
+    <script src="public/js/config.js"></script>
+    <script src="public/js/session-check.js"></script>
+>>>>>>> origin/Feature/creacion-footer/05-12-25
     <script src="public/js/project-create.js"></script>
 </body>
 </html>

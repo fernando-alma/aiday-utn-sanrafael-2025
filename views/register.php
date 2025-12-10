@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIWKND - Registrarse</title>
     <link rel="stylesheet" href="public/css/register.css">
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
     <div class="container">
@@ -65,12 +66,12 @@
             </div>
         </section>
         
-        <!-- Desktop Bottom Nav -->
-        <nav class="desktop-bottom-nav">
-            <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND" class="desktop-bottom-logo">
-        </nav>
+    
+        
         <script src="public/js/register.js"></script>
         <?php require_once("components/nav.php"); ?>
+        <?php require_once ("components/footer.php"); ?>
+        
     </div>
 </body>
 </html>

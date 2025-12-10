@@ -158,7 +158,7 @@
                     Ver Proyectos 
 =======
     
-    <link rel="stylesheet" href="public/css/footer.css"> 
+<link rel="stylesheet" href="public/css/footer.css"> 
 
     <style>
         body {
@@ -637,6 +637,7 @@
             </div>
         </section>
 
+<<<<<<< HEAD
     </div><?php include 'components/footer.php'; ?> 
 >>>>>>> 76f854582094d3551df5646c5c9183e7b754e996
 
@@ -663,5 +664,10 @@
     </section>
     
     <?php require_once("components/nav.php"); ?>
+=======
+    </div>
+      <?php require_once("components/nav.php"); ?>
+      <?php require_once ("components/footer.php"); ?>
+>>>>>>> origin/Feature/creacion-footer/05-12-25
 </body>
 </html>
