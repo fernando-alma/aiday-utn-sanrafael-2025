@@ -1,6 +1,6 @@
 const CONFIG = {
     // Apuntamos a la carpeta pública del backend MVC
-    API_BASE: window.location.origin + '/fusion-proyecto/backend/public/',
+    API_BASE: window.location.origin + '/aiday-utn-sanrafael-2025-fullstack/backend/public/',
     
     // Slug por defecto
     SLUG: 'hola' 
