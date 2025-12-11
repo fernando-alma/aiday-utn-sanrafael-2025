@@ -98,7 +98,7 @@
 
 /* Efecto Hover:*/
 .social-links a:hover {
-    border: 5px solid var(--color-texto-principal); 
+    scale: 1.1;
     background-color: #eee; 
 }
 
