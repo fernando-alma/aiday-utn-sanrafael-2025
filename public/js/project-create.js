@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
           this.reset();
           // Redirigir al landing después de crear el proyecto
           setTimeout(() => {
-            window.location.href = 'index';
+            window.location.href = 'project-list';
           }, 1500);
         } else {
           showNotification(data.message || "Error al crear el proyecto.", 'error');

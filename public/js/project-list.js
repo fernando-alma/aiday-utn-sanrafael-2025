@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 )}" class="btn-ver-mas">Ver detalles</a>
             `;
       
-      projectImg.src = "backend/public" + project.image || "public/images/los_reyunos.png";
+      projectImg.src = project.image ? `backend/public/${project.image}` : "public/images/fondos/fondo2.jpg"
       const firstChildProject = projectCard.querySelector(".project-header");
       
       firstChildProject.appendChild(projectImg);
