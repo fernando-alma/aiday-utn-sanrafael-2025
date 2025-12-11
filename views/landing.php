@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evento AIWKND Mendoza 2025</title>
+    <title>AIDAY Los Reyunos</title>
 
     <!-- Estilos -->
+    <link rel="stylesheet" href="public/css/nav-styles.css">
     <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/landing.css">
     <link rel="stylesheet" href="public/css/footer.css">
@@ -29,13 +30,13 @@
 <body>
     <div class="content-wrap">
         <section class="hero">
-            <div class="container">
+            <div class="hero-container">
                 <h1 class="hero-title">
-                    Evento AIWKND<br>
-                    Mendoza 2025
+                    AIDAY <br>
+                    Los Reyunos 2025
                 </h1>
                 <p class="hero-subtitle">
-                    Únete al encuentro de inteligencia artificial, tecnología y emprendimiento más grande de la región.
+                    Dos días para conectar talento, empresas e Inteligencia Artificial en el corazón de Los Reyunos.
                 </p>
                 <a href="register" class="hero-cta">Quiero participar</a>
             </div>
@@ -174,8 +175,8 @@
         <section class="community-section">
             <div class="container">
                 <div class="community-header">
-                    <h2 class="section-title">Speakers</h2>
-                    <p class="community-subtitle">Conoce a nuestros expertos, speakers y mentores.</p>
+                    <h2 class="section-title">Speakeners</h2>
+                    <p class="community-subtitle">Aprende de expertos de la industria y líderes de opinión</p>
                 </div>
 
                 <div class="helpers-logos">
@@ -248,61 +249,89 @@
                     <div class="shadow__right"></div>
                     <div class="shadow__left"></div>
                 </div>
-
                 <div class="collaborators-grid">
                     <div class="collaborator-card">
                         <div class="card-image-container">
-                            <img src="https://i.pravatar.cc/400?img=5" alt="Foto de perfil" class="collaborator-img">
+                            <img src="public/images/speakers/Antonella Calabro.png" alt="Foto de perfil" class="collaborator-img">
                         </div>
                         <div class="card-content">
-                            <h3 class="collaborator-name">Dr. Aisha Patel</h3>
-                            <div class="collaborator-role">Chief AI Scientist</div>
-                            <div class="collaborator-company">TechVision AI</div>
-                            <p class="collaborator-bio">Leading researcher in neural architecture search and automated machine learning.</p>
-                            <a href="#" class="social-link" aria-label="LinkedIn Dr. Aisha Patel">
-                                <!-- ícono SVG -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
+                            <h3 class="collaborator-name">Antonella Calabró</h3>
+                            <div class="collaborator-role">Pdta. PIT REGIÓN SUR MENDOZA</div>
+                            <br>
+                            <p class="collaborator-bio">Upskills para el futuro: Cómo UX, Dev y producto construyen juntos en la era de la IA.</p>
                         </div>
                     </div>
 
                     <div class="collaborator-card">
                         <div class="card-image-container">
-                            <img src="https://i.pravatar.cc/400?img=12" alt="Foto de perfil" class="collaborator-img">
+                            <img src="public/images/speakers/Damian Kesler.png" alt="Foto de perfil" class="collaborator-img">
                         </div>
                         <div class="card-content">
-                            <h3 class="collaborator-name">Juan Pérez</h3>
-                            <div class="collaborator-role">Full Stack Dev</div>
-                            <div class="collaborator-company">Mercado Libre</div>
-                            <p class="collaborator-bio">Especialista en escalabilidad y arquitectura de software distribuido.</p>
-                            <a href="#" class="social-link" aria-label="LinkedIn Juan Pérez">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
+                            <h3 class="collaborator-name">Damián Kesler</h3>
+                            <div class="collaborator-role">NOVEDADESIA.SR</div>
+                            <br>
+                            <p class="collaborator-bio">La evolución de la IA, info noticias, actualidad y usos de la IA.</p>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <div class="card-image-container">
+                            <img src="public/images/speakers/Alejandro Bacic.png" alt="Foto de perfil" class="collaborator-img">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="collaborator-name">Alejandro Bacic</h3>
+                            <div class="collaborator-role">AIWKND</div>
+                            <br>
+                            <p class="collaborator-bio">AI FUTURO - ICONNECT</p>
+                           
                         </div>
                     </div>
 
+                </div>
+                 <div class="collaborators-grid">
+                    <div class="collaborator-card">
+                        <div class="card-image-container">
+                            <img src="public/images/speakers/Antonella Calabro.png" alt="Foto de perfil" class="collaborator-img">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="collaborator-name">Antonella Calabró</h3>
+                            <div class="collaborator-role">Pdta. PIT REGIÓN SUR MENDOZA</div>
+                            <br>
+                            <p class="collaborator-bio">Upskills para el futuro: Cómo UX, Dev y producto construyen juntos en la era de la IA.</p>
+                           
+                        </div>
+                    </div>
+
+                    <div class="collaborator-card">
+                        <div class="card-image-container">
+                            <img src="public/images/speakers/Damian Kesler.png" alt="Foto de perfil" class="collaborator-img">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="collaborator-name">Damián Kesler</h3>
+                            <div class="collaborator-role">NOVEDADESIA.SR</div>
+                            <br>
+                            <p class="collaborator-bio">La evolución de la IA, info noticias, actualidad y usos de la IA.</p>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="collaborator-card">
+                        <div class="card-image-container">
+                            <img src="public/images/speakers/Antonella Calabro.png" alt="Foto de perfil" class="collaborator-img">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="collaborator-name">Antonella Calabró</h3>
+                            <div class="collaborator-role">Pdta. PIT REGIÓN SUR MENDOZA</div>
+                            <br>
+                            <p class="collaborator-bio">Upskills para el futuro: Cómo UX, Dev y producto construyen juntos en la era de la IA.</p>
+                           
+                        </div>
+                    </div>
+
+                    
                     <!-- Más collaborator-cards limpias y coherentes -->
-                    <div class="collaborator-card">
-                        <div class="card-image-container">
-                            <img src="https://i.pravatar.cc/400?img=9" alt="Foto de perfil" class="collaborator-img">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="collaborator-name">Sofía Martínez</h3>
-                            <div class="collaborator-role">Venture Capitalist</div>
-                            <div class="collaborator-company">Mendoza Ventures</div>
-                            <p class="collaborator-bio">Inversora ángel enfocada en startups de IA en Latinoamérica.</p>
-                            <a href="#" class="social-link" aria-label="LinkedIn Sofía Martínez">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
+        
                     <!-- Se pueden añadir más tarjetas siguiendo el mismo patrón -->
                 </div>
             </div>
