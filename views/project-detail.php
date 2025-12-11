@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIWKND - Detalle de Proyecto</title>
     <link rel="stylesheet" href="public/css/project-detail.css">
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
     <div class="container">
@@ -40,10 +41,7 @@
 
         <?php require_once("components/nav.php"); ?>
         
-        <!-- Desktop Bottom Nav -->
-        <nav class="desktop-bottom-nav">
-            <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND" class="desktop-bottom-logo">
-        </nav>
+        
 
         <!-- Modal de confirmación de eliminación de proyecto -->
         <div id="deleteModal" class="delete-modal-overlay" style="display: none;">
@@ -60,6 +58,7 @@
                 </div>
             </div>
         </div>
+        <?php require_once ("components/footer.php"); ?> 
     </div>
     <script src="public/js/config.js"></script>
     <script src="public/js/session-check.js"></script>

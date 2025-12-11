@@ -13,11 +13,11 @@ function verificarBloqueo() {
   const bloqueoHasta = parseInt(localStorage.getItem("bloqueoLoginHasta"));
   const ahora = Date.now();
   if (bloqueoHasta && bloqueoHasta > ahora) {
-    if(loginBtn) loginBtn.disabled = true;
+    loginBtn.disabled = true;
     actualizarMensajeBloqueo();
   } else {
     localStorage.removeItem("bloqueoLoginHasta");
-    if(loginBtn) loginBtn.disabled = false;
+    loginBtn.disabled = false;
     intentosFallidos = 0;
     localStorage.setItem("intentosFallidos", "0");
   }
@@ -29,24 +29,167 @@ function actualizarMensajeBloqueo() {
   const ahora = Date.now();
   if (bloqueoHasta > ahora) {
     const segundosRestantes = Math.ceil((bloqueoHasta - ahora) / 1000);
-    if(loginBtn) loginBtn.textContent = `Bloqueado (${segundosRestantes}s)`;
+    loginBtn.textContent = `Bloqueado (${segundosRestantes}s)`;
     setTimeout(actualizarMensajeBloqueo, 1000);
   } else {
-    if(loginBtn) {
-        loginBtn.disabled = false;
-        loginBtn.textContent = "Iniciar sesión";
-    }
+    loginBtn.disabled = false;
+    loginBtn.textContent = "Iniciar sesión";
     localStorage.removeItem("bloqueoLoginHasta");
     localStorage.setItem("intentosFallidos", "0");
     intentosFallidos = 0;
   }
 }
 
-function showNotification(message, type = 'success') {
-    // Verificar si ya existe una notificación y eliminarla
-    const existing = document.querySelector('.notification');
-    if(existing) existing.remove();
+function mostrarMensajeLogin(mensaje) {
+  const mensajeDiv = document.getElementById("mensajeLogin");
+  if (mensajeDiv) {
+    mensajeDiv.textContent = mensaje;
+    mensajeDiv.style.display = "block";
+    // Oculta el mensaje 
+    setTimeout(() => {
+      mensajeDiv.style.display = "none";
+    }, 1500);
+  }
+}
 
+// Función de ayuda para verificar roles
+function hasRole(roleName) {
+  const storedRoles = localStorage.getItem("roles");
+  if (!storedRoles) {
+    return false;
+  }
+  try {
+    const roles = JSON.parse(storedRoles);
+    return roles.some(role => role.nombre_rol === roleName);
+  } catch (e) {
+    console.error("Error parsing roles from localStorage:", e);
+    return false;
+  }
+}
+
+loginF.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const username = document.querySelector("#username").value;
+  const password = document.querySelector("#password").value;
+  const mantenerSesion = document.querySelector("#mantenerSesion").checked;
+
+  if (!username || !password) {
+    showNotification("Por favor ingresa ambos campos: usuario y contraseña.", 'error');
+    return;
+  }
+
+  try {
+    // Antes de subir a producción https://systemauth.alphadocere.cl/login.php o a https://test-systemauth.alphadocere.cl/login.php
+    const response = await fetch('https://test-systemauth.alphadocere.cl/login.php', {  // endpoint local
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: username,
+          password: password,
+        }),
+      });
+
+    const result = await response.json();
+    console.log("Respuesta del servidor:", result);
+
+    if (result.success === true) {
+      // Reset de intentos fallidos
+      intentosFallidos = 0;
+      localStorage.setItem("intentosFallidos", "0");
+      localStorage.removeItem("bloqueoLoginHasta");
+      console.log("Login exitoso");
+
+      // Almacenar información del login
+      if (mantenerSesion) {
+        localStorage.setItem("userLoggedIn", "true");
+        localStorage.setItem("username", username);
+        localStorage.setItem("sessionPermanent", "true");
+        
+        // Almacenar datos adicionales del usuario si están disponibles
+        if (result.token) {
+          localStorage.setItem("token", result.token);
+        }
+        if (result.user) {
+          localStorage.setItem("userId", result.user.id);
+          localStorage.setItem("userEmail", result.user.email);
+          localStorage.setItem("userName", result.user.nombre);
+          localStorage.setItem("userCiudad", result.user.ciudad);
+        }
+        // Guardar los roles asociados al usuario si están disponibles
+        if (Array.isArray(result.roles)) {
+          localStorage.setItem("roles", JSON.stringify(result.roles));
+        }
+      } else {
+        sessionStorage.setItem("userLoggedIn", "true");
+        sessionStorage.setItem("username", username);
+        sessionStorage.setItem("sessionPermanent", "false");
+        
+        // También guardamos en localStorage como respaldo
+        localStorage.setItem("userLoggedIn", "true");
+        localStorage.setItem("username", username);
+        localStorage.setItem("sessionPermanent", "false");
+        
+        // Almacenar datos adicionales del usuario si están disponibles
+        if (result.token) {
+          sessionStorage.setItem("token", result.token);
+          localStorage.setItem("token", result.token);
+        }
+        if (result.user) {
+          sessionStorage.setItem("userId", result.user.id);
+          localStorage.setItem("userId", result.user.id);
+          sessionStorage.setItem("userEmail", result.user.email);
+          localStorage.setItem("userEmail", result.user.email);
+          sessionStorage.setItem("userName", result.user.nombre);
+          localStorage.setItem("userName", result.user.nombre);
+          sessionStorage.setItem("userCiudad", result.user.ciudad);
+          localStorage.setItem("userCiudad", result.user.ciudad);
+        }
+        // Guardar los roles asociados al usuario si están disponibles
+        if (Array.isArray(result.roles)) {
+          sessionStorage.setItem("roles", JSON.stringify(result.roles));
+          localStorage.setItem("roles", JSON.stringify(result.roles));
+        }
+      }
+
+      showNotification("¡Inicio de sesión exitoso!", 'success');
+      setTimeout(() => {
+        window.location.href = "profile";
+      }, 1500);
+      
+    } else {
+      showNotification("Usuario o contraseña incorrectos.", 'error');
+
+      // Agrega intento fallido y si es igual o supera los intentos empieza el timer
+      intentosFallidos++;
+      localStorage.setItem("intentosFallidos", intentosFallidos);
+      if (intentosFallidos >= maxIntentos) {
+        const bloqueoHasta = Date.now() + bloqueoTiempo * 1000;
+        localStorage.setItem("bloqueoLoginHasta", bloqueoHasta);
+        loginBtn.disabled = true;
+        actualizarMensajeBloqueo();
+      }
+    }
+  } catch (error) {
+    console.error("Error completo:", error);
+    showNotification("Haz intentado demasiadas veces. Inténtalo de nuevo mas tarde.", 'error');
+  }
+});
+
+// Ver/Ocultar contraseña
+const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#password");
+
+togglePassword.addEventListener("click", () => {
+  const esPassword = password.getAttribute("type") === "password";
+  password.setAttribute("type", esPassword ? "text" : "password");
+
+  togglePassword.classList.toggle("bi-eye");
+  togglePassword.classList.toggle("bi-eye-slash");
+});
+
+function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
@@ -63,97 +206,4 @@ function showNotification(message, type = 'success') {
             }, 300);
         }
     }, 4000);
-}
-
-// Ver/Ocultar contraseña
-const togglePassword = document.querySelector("#togglePassword");
-const passwordInput = document.querySelector("#password");
-
-if(togglePassword && passwordInput) {
-    togglePassword.addEventListener("click", () => {
-      const esPassword = passwordInput.getAttribute("type") === "password";
-      passwordInput.setAttribute("type", esPassword ? "text" : "password");
-    
-      togglePassword.classList.toggle("bi-eye");
-      togglePassword.classList.toggle("bi-eye-slash");
-    });
-}
-
-if (loginF) {
-    loginF.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const username = document.querySelector("#username").value;
-      const password = document.querySelector("#password").value;
-      const mantenerSesion = document.querySelector("#mantenerSesion") ? document.querySelector("#mantenerSesion").checked : false;
-    
-      if (!username || !password) {
-        showNotification("Por favor ingresa ambos campos: usuario y contraseña.", 'error');
-        return;
-      }
-    
-     try {
-    // CAMBIO IMPORTANTE: Usar la constante API_BASE + la ruta del controlador
-    // La ruta exacta depende de cómo esté definido en backend/app/Routes/api.php
-    // Usualmente es 'login' o 'auth/login'
-    const response = await fetch(CONFIG.API_BASE + 'login', { 
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: username,     // Ojo: verifica si el backend espera "email" o "username"
-          password: password,
-        }),
-    });v
-    
-        const result = await response.json();
-        console.log("Respuesta del servidor:", result);
-    
-        if (result.success === true) {
-          // Reset de intentos fallidos
-          intentosFallidos = 0;
-          localStorage.setItem("intentosFallidos", "0");
-          localStorage.removeItem("bloqueoLoginHasta");
-          
-          // Almacenar información del login
-          const storage = mantenerSesion ? localStorage : sessionStorage;
-          
-          storage.setItem("userLoggedIn", "true");
-          storage.setItem("username", username);
-          
-          // Guardar en ambos para consistencia de session-check.js
-          if(!mantenerSesion) {
-             localStorage.setItem("userLoggedIn", "true"); // Respaldo mínimo
-          }
-
-          if (result.token) storage.setItem("token", result.token);
-          if (result.user) {
-              storage.setItem("userId", result.user.id);
-              storage.setItem("userEmail", result.user.email);
-              storage.setItem("userName", result.user.nombre || username);
-          }
-    
-          showNotification("¡Inicio de sesión exitoso!", 'success');
-          setTimeout(() => {
-            window.location.href = "project-list"; // Redirigir a lista de proyectos
-          }, 1500);
-          
-        } else {
-          showNotification(result.error || "Usuario o contraseña incorrectos.", 'error');
-    
-          // Lógica de intentos fallidos
-          intentosFallidos++;
-          localStorage.setItem("intentosFallidos", intentosFallidos);
-          if (intentosFallidos >= maxIntentos) {
-            const bloqueoHasta = Date.now() + bloqueoTiempo * 1000;
-            localStorage.setItem("bloqueoLoginHasta", bloqueoHasta);
-            if(loginBtn) loginBtn.disabled = true;
-            actualizarMensajeBloqueo();
-          }
-        }
-      } catch (error) {
-        console.error("Error completo:", error);
-        showNotification("Error de conexión con el servidor local.", 'error');
-      }
-    });
 }

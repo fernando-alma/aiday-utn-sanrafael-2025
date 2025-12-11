@@ -4,73 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear proyecto</title>
+    <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/project-create.css">
+    <link rel="stylesheet" href="public/css/footer.css"> 
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-left">
-                <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND" class="logo">
-                <nav class="desktop-nav">
-                    <a href="index" class="nav-link">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Inicio</span>
-                    </a>
-                    <a href="project-list" class="nav-link">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Proyectos</span>
-                    </a>
-                </nav>
-            </div>
-            <nav class="desktop-nav-right">
-                <a href="profile" class="nav-link">
-                    <span class="nav-icon"></span>
-                    <span class="nav-text">Cuenta</span>
-                </a>
-            </nav>
-        </header>
-        
-        <section class="form-section">
+
+    <section class="form-section">
         <div class="form-container">
             <h1 class="form-title">Crear proyecto</h1>
-            <form class="capitals-form" id="capitalsForm" enctype="multipart/form-data">
+            <form class="capitals-form" id="capitalsForm">
+                
                 <div class="form-group">
-                    <label for="title"></label>
+                    <label for="group_name">Nombre del Grupo</label>
+                    <input type="text" id="group_name" name="group_name" placeholder="Ej: Equipo Alfa" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">Título del Proyecto</label>
                     <input type="text" id="title" name="title" placeholder="Ingresa el título del proyecto" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="description"></label>
-                    <textarea id="description" name="description" placeholder="Ingresa la descripción del proyecto. Puedes usar formato estructurado con viñetas (•) y secciones (Descripción:, Valor diferencial:)" required rows="12"></textarea>
-                    <div class="formatting-help">
-                        <small> Usa "•" o "-" para viñetas, y ":" para títulos de sección, ejemplo: "Descripción:"</small>
-                    </div>
+                    <label for="description">Descripción del Proyecto</label>
+                    <textarea id="description" name="description" placeholder="Ingresa la descripción (máx. 1000 caracteres)" rows="5" maxlength="1000" required></textarea>
                 </div>
+                
+              
                 <div class="form-group">
-                    <label for="pitch"></label>
-                    <input type="text" id="pitch" name="pitch" placeholder="Ingresa el enlace de tu pitch">
+                    <label for="image">Imagen de Portada (image - 16:9)</label>
+                    <input type="file" id="image" name="image" accept="image/*">
                 </div>
+
                 <div class="form-group">
-                    <label for="image"></label>
-                    <input type="file" id="image" name="image">
-                    <p class="resolution-info">Resoluciones recomendadas de imagen: 640×480, 800×600, 1024×768, 1280×688</p>
+                    <label for="link_video">Link de Video (YouTube)</label>
+                    <input type="url" id="link_video" name="link_video" placeholder="Ej: https://youtu.be/..." required>
                 </div>
+
+                <div class="form-group">
+                    <label for="members_data">Integrantes y LinkedIn</label>
+                    <textarea id="members_data" name="members_data" placeholder="Ej: Juan Pérez, https://linkedin.com/in/juanp" rows="3" required></textarea>
+                    <small>Introduce los datos de los integrantes. Idealmente en formato JSON o texto estructurado que el backend pueda procesar.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="link_deploy">Link del Proyecto Deployado</label>
+                    <input type="url" id="link_deploy" name="link_deploy" placeholder="Ej: https://mi-proyecto.vercel.app" required>
+                </div>
+                
                 <div>
-                    <button type="submit" class="submit-button">Crear proyecto</button>
                     <button type="button" class="submit-button" id="cancelButton">Cancelar</button>
+                    <button type="button" class="submit-button" id="previewButton">Vista previa</button>
+                    <button type="submit" class="submit-button">Crear proyecto</button>
                 </div>
             </form>
         </div>
     </section>
+<<<<<<< HEAD
 
-        <!-- Desktop Bottom Nav -->
-        <nav class="desktop-bottom-nav">
-            <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND" class="desktop-bottom-logo">
-        </nav>
-        
+    <?php require_once("components/nav.php"); ?>
+    
+=======
         <?php require_once("components/nav.php"); ?>
+        <?php require_once ("components/footer.php"); ?>
     </div>
     <script src="public/js/config.js"></script>
     <script src="public/js/session-check.js"></script>
+>>>>>>> origin/Feature/creacion-footer/05-12-25
     <script src="public/js/project-create.js"></script>
 </body>
 </html>

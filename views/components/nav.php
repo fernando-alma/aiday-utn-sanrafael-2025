@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="nav-container">
         <a href="index">
-            <img src="https://v0-ai-weekend-mendoza.vercel.app/logo-aiwknd-light.svg" alt="AIWKND Logo" class="logo-img">
+            <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND Logo" class="logo-img">
         </a>
         <a href="register" class="nav-button">
             Regístrate gratis
