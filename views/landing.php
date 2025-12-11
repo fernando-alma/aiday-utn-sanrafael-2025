@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/landing.css">
     <link rel="stylesheet" href="public/css/footer.css">
+    <link rel="stylesheet" href="public/css/marquee.css">
 
     <style>
         body {
@@ -177,7 +178,76 @@
                     <p class="community-subtitle">Conoce a nuestros expertos, speakers y mentores.</p>
                 </div>
 
-
+                <div class="helpers-logos">
+                    <div id="marquee">
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/aiwkndlogo.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/utn-bg-remove.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/aiwkndlogo.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/alfa-vertical.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/aiwkndlogo.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/utn-bg-remove.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/aiwkndlogo.png"
+                                alt="" />
+                        </a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            title="">
+                            <img
+                                src="public/images/alfa-vertical.png"
+                                alt="" />
+                        </a>
+                    </div>
+                    <div class="shadow__right"></div>
+                    <div class="shadow__left"></div>
+                </div>
 
                 <div class="collaborators-grid">
                     <div class="collaborator-card">

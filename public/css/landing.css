@@ -1,6 +1,6 @@
 /* --- Configuración General del Sección --- */
 .community-section {
-    background-color: #0f0f1a; /* Fondo muy oscuro, casi negro/azul */
+    background-color: #1E2466; /* Fondo muy oscuro, casi negro/azul */
     color: white;
     padding: 60px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O la fuente que uses */
@@ -22,6 +22,7 @@
     margin-bottom: 10px;
     background: linear-gradient(to right, #ff00cc, #333399); /* Un gradiente estilo la imagen */
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
