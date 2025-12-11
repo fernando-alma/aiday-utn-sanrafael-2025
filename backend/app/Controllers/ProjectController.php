@@ -22,108 +22,118 @@ class ProjectController
         $this->memberModel = new MemberModel();
     }
 
-public function create() {
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+    public function create()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+        }
+
+        $title = $_POST['title'] ?? '';
+        $description = $_POST['description'] ?? '';
+        $status = $_POST['status'] ?? 'in_progress';
+        $dashboardSlug = $_POST['slug'] ?? '';
+        $pitch = $_POST['pitch'] ?? '';
+
+        // ************************************************
+        // LEYENDO LOS 4 NUEVOS CAMPOS DEL FRONTEND
+        // ************************************************
+        $groupName = $_POST['group_name'] ?? '';
+        $linkVideo = $_POST['link_video'] ?? '';
+        $linkDeploy = $_POST['link_deploy'] ?? '';
+        $membersData = $_POST['members_data'] ?? '';
+        // ************************************************
+
+        if (empty($title) || empty($description) || empty($dashboardSlug)) {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Faltan datos requeridos'], 400);
+        }
+
+        $validStatuses = ['in_progress', 'completed'];
+        if (!in_array($status, $validStatuses)) {
+            $status = 'in_progress';
+        }
+
+        // --- 1. Crear el proyecto sin imagen primero ---
+        $projectId = $this->projectModel->createProject($pitch, $dashboardSlug, $title, $description, $status, $groupName, $linkVideo, $linkDeploy, $membersData, null);
+
+        if (!$projectId) {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Error al crear el proyecto o dashboard no encontrado.'], 500);
+        }
+
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../public/uploads/projects/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            // Obtener la extensión del archivo
+            $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            $imageName = "project_{$projectId}." . strtolower($extension);
+            $imagePath = $uploadDir . $imageName;
+
+            // Si ya existe, se sobrescribe
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
+                // Guardar la URL relativa
+                $imageUrl = '/uploads/projects/' . $imageName;
+
+                // --- 3. Actualizar el proyecto con la URL de la imagen ---
+                $this->projectModel->updateImage($projectId, $imageUrl);
+            } else {
+                $this->sendJsonResponse(['success' => false, 'message' => 'Error al mover la imagen al servidor.'], 500);
+            }
+        }
+
+        if ($projectId) {
+            $this->sendJsonResponse(['success' => true, 'message' => 'Proyecto creado exitosamente', 'project_id' => $projectId], 201);
+        } else {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Error al crear el proyecto o dashboard no encontrado.'], 500);
+        }
     }
 
-    $title = $_POST['title'] ?? '';
-    $description = $_POST['description'] ?? '';
-    $status = $_POST['status'] ?? 'in_progress';
-    $dashboardSlug = $_POST['slug'] ?? '';
-    $pitch = $_POST['pitch'] ?? '';
+    public function createProjectsMember()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+            return;
+        }
 
-    // ************************************************
-    // LEYENDO LOS 4 NUEVOS CAMPOS DEL FRONTEND
-    // ************************************************
-    $groupName = $_POST['group_name'] ?? '';
-    $linkVideo = $_POST['link_video'] ?? '';
-    $linkDeploy = $_POST['link_deploy'] ?? '';
-    $membersData = $_POST['members_data'] ?? '';
-    // ************************************************
+        $role = $_POST['role'] ?? 'member';
+        $email = $_POST['email'] ?? '';
+        $name = $_POST['name'] ?? '';
+        $projectId = $_POST['project_id'] ?? null;
 
-    if (empty($title) || empty($description) || empty($dashboardSlug)) {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Faltan datos requeridos'], 400);
+        if ($projectId === '' || $projectId === 'null') {
+            $projectId = null;
+        } else {
+            $projectId = (int)$projectId;
+        }
+
+        if (empty($email) || empty($name)) {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Faltan datos requeridos'], 400);
+            return;
+        }
+
+        $result = $this->memberModel->addProjectMember($projectId, $name, $email, $role);
+
+        if ($result['success']) {
+            $this->sendJsonResponse([
+                'success' => true,
+                'message' => 'Miembro de Proyecto creado exitosamente',
+                'member_id' => $result['id']
+            ], 201);
+        } else {
+            $message = $result['message'] ?? 'Error al crear el miembro de proyecto.';
+            $statusCode = ($message === 'No puedes unirte a más de un proyecto.') ? 403 : 500;
+
+            $this->sendJsonResponse([
+                'success' => false,
+                'message' => $message
+            ], $statusCode);
+        }
     }
-
-    $validStatuses = ['in_progress', 'completed'];
-    if (!in_array($status, $validStatuses)) {
-        $status = 'in_progress';
-    }
-
-    // Procesar imagen si fue subida
-    $imageData = null;
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $imageTmpPath = $_FILES['image']['tmp_name'];
-        $imageData = file_get_contents($imageTmpPath);
-    }
-
-    // ************************************************
-    // [SOLUCIÓN] LLAMADA RE-ORDENADA DE 10 ARGUMENTOS
-    // EL ORDEN DEBE COINCIDIR EXACTAMENTE CON EL MODELO (ProjectModel.php)
-    // ************************************************
-    $projectId = $this->projectModel->createProject(
-        $pitch,             // 1. Pitch
-        $dashboardSlug,     // 2. Dashboard Slug
-        $title,             // 3. Title
-        $description,       // 4. Description
-        $status,            // 5. Status
-        $groupName,         // 6. Nuevo: groupName
-        $linkVideo,         // 7. Nuevo: linkVideo
-        $linkDeploy,        // 8. Nuevo: linkDeploy
-        $membersData,       // 9. Nuevo: membersData
-        $imageData          // 10. ?string (Opcional, al final)
-    );
-    // ************************************************
-
-    if ($projectId) {
-        $this->sendJsonResponse(['success' => true, 'message' => 'Proyecto creado exitosamente', 'project_id' => $projectId], 201);
-    } else {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Error al crear el proyecto o dashboard no encontrado.'], 500);
-    }
-}
-
-public function createProjectsMember()
-{
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
-        return;
-    }
-
-    $role = $_POST['role'] ?? 'member';
-    $email = $_POST['email'] ?? '';
-    $name = $_POST['name'] ?? '';
-    $projectId = $_POST['project_id'] ?? null;
-
-    if ($projectId === '' || $projectId === 'null') {
-        $projectId = null;
-    } else {
-        $projectId = (int)$projectId;
-    }
-
-    if (empty($email) || empty($name)) {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Faltan datos requeridos'], 400);
-        return;
-    }
-
-    $result = $this->memberModel->addProjectMember($projectId, $name, $email, $role);
-
-    if ($result['success']) {
-        $this->sendJsonResponse([
-            'success' => true,
-            'message' => 'Miembro de Proyecto creado exitosamente',
-            'member_id' => $result['id']
-        ], 201);
-    } else {
-        $message = $result['message'] ?? 'Error al crear el miembro de proyecto.';
-        $statusCode = ($message === 'No puedes unirte a más de un proyecto.') ? 403 : 500;
-
-        $this->sendJsonResponse([
-            'success' => false,
-            'message' => $message
-        ], $statusCode);
-    }
-}
 
     public function getProjects()
     {
@@ -177,41 +187,41 @@ public function createProjectsMember()
         }
     }
 
-public function update()
-{
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+    public function update()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+        }
+
+        $projectId = $_POST['id'] ?? null;
+        $title = $_POST['title'] ?? '';
+        $description = $_POST['description'] ?? '';
+        $status = $_POST['status'] ?? 'in_progress';
+        $pitch = $_POST['pitch'] ?? null;
+
+        if (empty($projectId) || empty($title) || empty($description)) {
+            $this->sendJsonResponse(['success' => false, 'message' => 'ID, título y descripción del proyecto son requeridos'], 400);
+        }
+
+        $validStatuses = ['in_progress', 'completed'];
+        if (!in_array($status, $validStatuses)) {
+            $status = 'in_progress';
+        }
+
+        $imageData = null;
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $imageTmpPath = $_FILES['image']['tmp_name'];
+            $imageData = file_get_contents($imageTmpPath);
+        }
+
+        $result = $this->projectModel->updateProject((int)$projectId, $title, $description, $status, $imageData, $pitch);
+
+        if ($result) {
+            $this->sendJsonResponse(['success' => true, 'message' => 'Proyecto actualizado exitosamente'], 200);
+        } else {
+            $this->sendJsonResponse(['success' => false, 'message' => 'Error al actualizar el proyecto o no se encontró.'], 500);
+        }
     }
-
-    $projectId = $_POST['id'] ?? null;
-    $title = $_POST['title'] ?? '';
-    $description = $_POST['description'] ?? '';
-    $status = $_POST['status'] ?? 'in_progress';
-    $pitch = $_POST['pitch'] ?? null;
-
-    if (empty($projectId) || empty($title) || empty($description)) {
-        $this->sendJsonResponse(['success' => false, 'message' => 'ID, título y descripción del proyecto son requeridos'], 400);
-    }
-
-    $validStatuses = ['in_progress', 'completed'];
-    if (!in_array($status, $validStatuses)) {
-        $status = 'in_progress';
-    }
-
-    $imageData = null;
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $imageTmpPath = $_FILES['image']['tmp_name'];
-        $imageData = file_get_contents($imageTmpPath);
-    }
-
-    $result = $this->projectModel->updateProject((int)$projectId, $title, $description, $status, $imageData, $pitch);
-
-    if ($result) {
-        $this->sendJsonResponse(['success' => true, 'message' => 'Proyecto actualizado exitosamente'], 200);
-    } else {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Error al actualizar el proyecto o no se encontró.'], 500);
-    }
-}
 
     public function delete()
     {
@@ -285,8 +295,8 @@ public function update()
     public function sendJoinRequest()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-             $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
-             }
+            $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+        }
 
         $projectId = $_POST['project_id'] ?? null;
         $name = $_POST['name'] ?? '';
@@ -298,14 +308,14 @@ public function update()
         $joinModel = new \App\Backend\Models\JoinRequestModel();
         $result = $joinModel->createRequest((int)$projectId, $name, $email);
         $statusCode = $result['success'] ? 201 : 400;
-         $this->sendJsonResponse($result, $statusCode);
+        $this->sendJsonResponse($result, $statusCode);
     }
     public function getJoinRequests()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
         }
-        
+
         $projectId = $_GET['project_id'] ?? null;
         if (!$projectId) {
             $this->sendJsonResponse(['success' => false, 'message' => 'ID de proyecto requerido.'], 400);
@@ -357,43 +367,42 @@ public function update()
         if (!$requestId) {
             $this->sendJsonResponse(['success' => false, 'message' => 'ID de solicitud requerido.'], 400);
         }
-        
+
         $joinModel = new \App\Backend\Models\JoinRequestModel();
         $request = $joinModel->getRequestById((int)$requestId);
 
         if (!$request || $request['status'] !== 'pending') {
-        $this->sendJsonResponse(['success' => false, 'message' => 'Solicitud no encontrada o ya procesada.'], 404);
-    }
+            $this->sendJsonResponse(['success' => false, 'message' => 'Solicitud no encontrada o ya procesada.'], 404);
+        }
 
-    $joinModel->updateStatus((int)$requestId, 'rejected');
-    $this->sendJsonResponse(['success' => true, 'message' => 'Solicitud rechazada.'], 200);
+        $joinModel->updateStatus((int)$requestId, 'rejected');
+        $this->sendJsonResponse(['success' => true, 'message' => 'Solicitud rechazada.'], 200);
     }
     public function getFollowedProjects()
     {
-    try {
-        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
-            return;
+        try {
+            if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+                $this->sendJsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
+                return;
+            }
+
+            $email = $_GET['email'] ?? null;
+            $email = strtolower(trim($email));
+            if (!$email) {
+                $this->sendJsonResponse(['success' => false, 'message' => 'Email requerido.'], 400);
+                return;
+            }
+            $joinModel = new \App\Backend\Models\JoinRequestModel();
+            $projects = $joinModel->getFollowedProjectsByEmail($email);
+
+            $this->sendJsonResponse(['success' => true, 'projects' => $projects], 200);
+        } catch (\Exception $e) {
+
+            $this->sendJsonResponse([
+                'success' => false,
+                'message' => 'Ocurrió un error al obtener los proyectos seguidos.',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $email = $_GET['email'] ?? null;
-        $email = strtolower(trim($email));
-        if (!$email) {
-            $this->sendJsonResponse(['success' => false, 'message' => 'Email requerido.'], 400);
-            return;
-        }
-        $joinModel = new \App\Backend\Models\JoinRequestModel();
-        $projects = $joinModel->getFollowedProjectsByEmail($email);
-
-        $this->sendJsonResponse(['success' => true, 'projects' => $projects], 200);
-    } catch (\Exception $e) {
-
-        $this->sendJsonResponse([
-            'success' => false,
-            'message' => 'Ocurrió un error al obtener los proyectos seguidos.',
-            'error' => $e->getMessage()
-        ], 500);
     }
-}
-
 }

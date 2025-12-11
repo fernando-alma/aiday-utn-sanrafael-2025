@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 )}" class="btn-ver-mas">Ver detalles</a>
             `;
       
-      projectImg.src = project.image || "public/images/los_reyunos.png";
+      projectImg.src = "backend/public" + project.image || "public/images/los_reyunos.png";
       const firstChildProject = projectCard.querySelector(".project-header");
       
       firstChildProject.appendChild(projectImg);

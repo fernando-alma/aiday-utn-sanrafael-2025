@@ -83,6 +83,11 @@ public function createProject(
     return null;
 }
 
+public function updateImage(int $projectId, string $imageUrl): bool {
+    $stmt = $this->conn->prepare("UPDATE projects SET image = ? WHERE id = ?");
+    return $stmt->execute([$imageUrl, $projectId]);
+}
+
 public function getProjectById(int $projectId): ?array
 {
     $stmt = $this->conn->prepare("SELECT p.*, d.slug as dashboard_slug FROM projects p JOIN dashboards d ON p.dashboard_id = d.id WHERE p.id = ?");
@@ -110,7 +115,7 @@ public function getProjectById(int $projectId): ?array
 
     foreach ($projects as &$project) {
         if (!empty($project['image'])) {
-            $project['image'] = base64_encode($project['image']);
+            $project['image'] = $project['image'];
         }
     }
 
