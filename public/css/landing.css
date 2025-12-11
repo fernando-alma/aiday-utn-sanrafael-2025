@@ -1,6 +1,15 @@
+.hero-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-image: url('public/images/fondos/fondo.jpg');
+
+}
+
+
 /* --- Configuración General del Sección --- */
 .community-section {
-    background-color: #1E2466; /* Fondo muy oscuro, casi negro/azul */
+    
     color: white;
     padding: 60px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O la fuente que uses */
@@ -36,7 +45,7 @@
 .community-tab {
     padding: 10px 25px;
     border-radius: 20px;
-    background-color: #1a1a2e;
+    background: linear-gradient(to right, #ff00cc, #333399); /* Un gradiente estilo la imagen */
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -54,30 +63,31 @@
     /* Esto hace que sea responsivo automáticamente */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
     gap: 30px;
+    margin-bottom: 30px;
+    
 }
 
 .collaborator-card {
-    background-color: #161625; /* Fondo oscuro de la tarjeta */
+    background: linear-gradient(to right, #ff00cc, #333399); /* Un gradiente estilo la imagen */
     border-radius: 16px;
     overflow: hidden; /* Para que la imagen respete los bordes redondos */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    border: 1px solid transparent; /* Borde invisible inicial */
     display: flex;
     flex-direction: column;
+    border: 5px solid transparent; /* Borde invisible inicial */
 }
 
 /* Efecto Hover: Borde violeta y brillo como en tu imagen */
 .collaborator-card:hover {
     transform: translateY(-5px);
-    border-color: #8b5cf6; /* Color violeta del borde */
-    box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.5); /* Resplandor violeta */
+    border-color: #ff00ae; /* Color violeta del borde */
+    box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.5); /* Resplandor violeta */
 }
 
 /* Contenedor de la Imagen */
 .card-image-container {
     width: 100%;
     height: 200px; /* Altura fija para la imagen */
-    background-color: #2a2a40;
 }
 
 .collaborator-img {
