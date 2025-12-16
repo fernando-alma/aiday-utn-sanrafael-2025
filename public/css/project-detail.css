@@ -278,6 +278,13 @@ body {
   background: rgba(255, 255, 255, 0.02);
 }
 
+.section-content img {
+  width: 100%;
+  height: 400px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
 .project-description-formatted,
 .project-section-content,
 .project-general-text {

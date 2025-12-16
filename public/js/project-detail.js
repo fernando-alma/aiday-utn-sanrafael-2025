@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projectDetailContent.innerHTML = `
       <div class="project-section">
           <div class="section-content">
-            ${project.image ? `<img src="backend/public${escapeHtml(project.image)}" alt="Project Image" style="max-width:100%; height:auto; border-radius: 12px;">` : 'No disponible'}
+            ${project.image ? `<img src="backend/public${escapeHtml(project.image)}" alt="Project Image" style="max-width:100%; height:auto; border-radius: 12px;">` : '<img src="public/images/fondos/fondo.jpg" alt="Project Image" style="max-width:100%; height:auto; border-radius: 12px;">'}
           </div>
         </div>
 
