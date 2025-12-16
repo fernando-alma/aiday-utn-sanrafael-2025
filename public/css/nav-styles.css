@@ -117,8 +117,8 @@
     border-top: 1px solid #ddd;
     display: none;
   }
-
+  
   .nav-links a {
-    text-decoration: none;
+      text-decoration: none;
   }
 }

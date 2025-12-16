@@ -1,14 +1,14 @@
-const API_BASE = "http://localhost/aiday-utn-sanrafael-2025-fullstack/backend/public/";
+const API_BASE = "https://aiday-utn-sanrafael-2025.alphadocere.cl/backend/public/";
 const CURRENT_SLUG = "hola";
 
 document.addEventListener("DOMContentLoaded", () => {
   const allProjectsGrid = document.getElementById("allProjectsGrid");
   const paginationControls = document.getElementById("paginationControls");
   const searchBar = document.getElementById("search-bar");
-  console.log(searchBar)
+
   const initLoader = loader()
   initLoader.show();
-  
+
   let currentPage = 1;
   const projectsPerPage = 6;
   let cachedProjects = [];
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!dashboardsResp.ok) {
         throw new Error(`Error dashboards ${dashboardsResp.status}`);
       }
+      console.log(await dashboardsResp);
       const dashboardsData = await dashboardsResp.json();
       if (
         !dashboardsData.success ||
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         firstDashboard.id ||
         "";
       if (!slug) {
+
         allProjectsGrid.innerHTML =
           "<p>No se pudo determinar el slug del dashboard.</p>";
         return;
@@ -49,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       const projectsData = await projectsResp.json();
       if (!projectsData.success || !Array.isArray(projectsData.data)) {
-        
+
         allProjectsGrid.innerHTML = "<p>Error al cargar proyectos.</p>";
         return;
       }
@@ -59,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       renderPage();
     } catch (error) {
       console.error("Error fetching dashboards/projects:", error);
-      
+
       allProjectsGrid.innerHTML =
         "<p>No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.</p>";
     } finally {
@@ -77,6 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageItems = cachedProjects.slice(start, end);
     renderProjects(pageItems);
     renderPagination(totalPages, currentPage);
+  }
+
+  const limitCharacters = (str, maxLength) => {
+    if (str.length <= maxLength) return str;
+    return str.slice(0, maxLength) + "...";
   }
 
   function renderProjects(projects) {
@@ -114,28 +121,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="project-meta">
                     <h3>${escapeHtml(
-                      project.title || "Proyecto sin Título"
-                    )}</h3>
+        project.title || "Proyecto sin Título"
+      )}</h3>
                     <p>${escapeHtml(
-                      project.description || "Sin descripción."
-                    )}</p>
+        project.description || "Sin descripción."
+      )}</p>
                     <span class="status ${status}">${statusText}</span>
-                    <span class="dashboard-link">Dashboard: ${
-                      dashSlug
-                        ? `<a href="dashboard?slug=${encodeURIComponent(
-                            dashSlug
-                          )}">${escapeHtml(dashName)}</a>`
-                        : escapeHtml(dashName)
-                    }</span>
                 </div>
                 <a href="project-detail?id=${encodeURIComponent(
-                  project.id
-                )}" class="btn-ver-mas">Ver detalles</a>
+        project.id
+      )}" class="btn-ver-mas">Ver detalles</a>
             `;
-      
+
       projectImg.src = project.image ? `backend/public/${project.image}` : "public/images/fondos/fondo2.jpg"
       const firstChildProject = projectCard.querySelector(".project-header");
-      
+
       firstChildProject.appendChild(projectImg);
       allProjectsGrid.appendChild(projectCard);
     });
@@ -193,6 +193,23 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/'/g, "&#039;");
   }
 
+  function searchProjects(query) {
+    const filteredProjects = cachedProjects.filter((project) =>
+      project.title.toLowerCase().includes(query.toLowerCase())
+    );
+    currentPage = 1;
+    renderProjects(filteredProjects);
+    renderPagination(
+      Math.max(1, Math.ceil(filteredProjects.length / projectsPerPage)),
+      currentPage
+    );
+  }
+
+  searchBar.addEventListener("input", (e) => {
+    const query = e.target.value;
+    searchProjects(query);
+  });
+
   function loader() {
     const loaderContainer = document.createElement("div");
     loaderContainer.classList.add("loader-container");
@@ -211,6 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   };
-  
+
   fetchDashboardsAndProjects();
 });

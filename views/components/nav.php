@@ -2,7 +2,7 @@
     <div class="nav-container">
 
         <!-- Logo -->
-        <a href="index">
+        <a href="http://localhost/aiday-utn-sanrafael-2025/" class="nav-logo">
             <img src="public/images/AIWKND-negro-solo.png" alt="AIWKND Logo" class="logo-img">
         </a>
 
@@ -22,7 +22,7 @@
             <a href="#comunidad" class="bottom-nav-item"><span>Comunidad</span></a>
             <a href="login" class="bottom-nav-item"><span>Cuenta</span></a>
 
-            <a href="register" class="nav-button">
+            <a href="register" class="register-button">
                 Regístrate gratis
             </a>
         </div>
@@ -41,7 +41,7 @@
                 <a href="#comunidad" class="bottom-nav-item"><span>Comunidad</span></a>
                 <a href="login" class="bottom-nav-item"><span>Cuenta</span></a>
 
-                <a href="register" class="nav-button">
+                <a href="register" class="register-button">
                     Regístrate gratis
                 </a>
             </div>
@@ -65,8 +65,10 @@
         }
     }
 
-    const links = menuContainer.querySelectorAll("a")
+    const links = menuContainer.querySelectorAll("a");
     links.forEach((link) => {
+        link.style.textDecoration = "none";
+        link.style.color = "#fff";
         link.onclick = () => {
             menuContainer.style.display = "none";
         }

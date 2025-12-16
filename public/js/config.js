@@ -1,4 +1,9 @@
 const CONFIG = {
-    API_BASE: 'http://localhost/aiday-utn-sanrafael-2025-fullstack/backend/public/',
-    SLUG: 'hola'
+    // URL Absoluta a la API en producción
+    API_BASE: 'https://aiday-utn-sanrafael-2025.alphadocere.cl/backend/public/',
+    
+    // Slug por defecto para el dashboard
+    SLUG: 'hola' 
 };
+
+console.log('API conectada a:', CONFIG.API_BASE);
