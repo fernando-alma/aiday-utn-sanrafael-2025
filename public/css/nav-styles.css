@@ -68,6 +68,13 @@
   box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
 }
 
+.register-button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background-color: #ce47eb;
+}
+
 /* ------ MENU PARA MOBILE ------ */
 
 .menu-toggle-container {
