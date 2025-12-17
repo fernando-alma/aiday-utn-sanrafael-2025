@@ -4,67 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evento AIWKND Mendoza 2025</title>
-
+    <title>AIDAY Los Reyunos</title>
+    
+    <meta name="theme-color" content="#F17158">
     <!-- Estilos -->
+    <link rel="stylesheet" href="public/css/nav-styles.css">
     <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/landing.css">
     <link rel="stylesheet" href="public/css/footer.css">
     <link rel="stylesheet" href="public/css/marquee.css">
-
-    <style>
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-        }
-
-        .content-wrap {
-            flex-grow: 1;
-        }
-    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="content-wrap">
         <section class="hero">
-            <div class="container">
+            <div class="hero-container">
                 <h1 class="hero-title">
-                    Evento AIWKND<br>
-                    Mendoza 2025
+                    <img src="public/images/aiday-logo.png" width="280px" height="auto" alt="Logo Ai Day" /> <br>
+                    Los Reyunos 2025
                 </h1>
                 <p class="hero-subtitle">
-                    Únete al encuentro de inteligencia artificial, tecnología y emprendimiento más grande de la región.
+                    Dos días para conectar talento, empresas e Inteligencia Artificial en el corazón de Los Reyunos.
                 </p>
-                <a href="register" class="hero-cta">Quiero participar</a>
+                <div class="visual-banner-cta">
+                    <a href="project-list" class="hero-cta">Ver Proyectos</a>
+                </div>
             </div>
-        </section>
 
-        <section class="stats-section">
-            <div class="container">
+            <div class="container-stats">
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">3</div>
+                        <div class="stat-number">2</div>
                         <div class="stat-label">Días</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Pistas</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">100+</div>
+                        <div class="stat-number">+100</div>
                         <div class="stat-label">Participantes</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">24</div>
+                        <div class="stat-number">7</div>
                         <div class="stat-label">Speakers</div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <hr style="border-color: rgba(255,255,255,0.1); max-width: 1000px; margin: 0 auto; opacity: 0.3;">
+        </section>
+        </section>
 
         <section class="features-section">
             <div class="container">
@@ -72,251 +58,407 @@
                 <div class="features-grid">
                     <div class="feature-card">
                         <h3 class="feature-title">Aprendizaje y Mentoría</h3>
-                        <p class="feature-description">Sesiones de la mano de expertos y referentes de la industria. Aprende las últimas tendencias de la IA.</p>
+                        <p class="feature-description">Sesiones de la mano de expertos y referentes de la industria.
+                            Aprende las últimas tendencias de la IA.</p>
                     </div>
                     <div class="feature-card">
                         <h3 class="feature-title">Networking Real</h3>
-                        <p class="feature-description">Conecta con desarrolladores, emprendedores e inversores. Crea lazos profesionales de alto valor.</p>
+                        <p class="feature-description">Conecta con desarrolladores, emprendedores e inversores. Crea
+                            lazos profesionales de alto valor.</p>
                     </div>
                     <div class="feature-card">
                         <h3 class="feature-title">Impacto Social</h3>
-                        <p class="feature-description">Contribuye a la formación de una comunidad tecnológica más fuerte e inclusiva en la región.</p>
+                        <p class="feature-description">Contribuye a la formación de una comunidad tecnológica más fuerte
+                            e inclusiva en la región.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <hr style="border-color: rgba(255,255,255,0.1); max-width: 1000px; margin: 0 auto; opacity: 0.3;">
+        <section class="cta-padre">
+            <div class="cta-proyectos">
+                <img src="./public/images/desarrolladora.png" alt="AI Comunidad">
 
-        <section class="schedule-section">
-            <div class="container">
-                <h2 class="section-title">Cronograma del Evento: Viernes 12</h2>
-                <ul class="schedule-list">
-                    <li class="schedule-item">
-                        <span class="schedule-time">9:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Acreditación y Bienvenida</div>
-                            <div class="schedule-speaker">Organización del evento</div>
-                        </div>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time">10:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Keynote: El Futuro de la IA</div>
-                            <div class="schedule-speaker">Speaker Principal</div>
-                        </div>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time">16:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Panel: IA y Negocios</div>
-                            <div class="schedule-speaker">Expertos de la industria</div>
-                        </div>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time">18:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Cocktail de Networking</div>
-                            <div class="schedule-speaker">Patrocinadores</div>
-                        </div>
-                    </li>
-                </ul>
             </div>
+            <div class="visual-banner-cta">
+                <a href="project-list" class="hero-cta">Ver Proyectos UTN FRSR</a>
+            </div>
+            
         </section>
 
-        <section class="schedule-section">
-            <div class="container">
-                <h2 class="section-title">Cronograma del Evento: Sábado 13</h2>
-                <ul class="schedule-list">
-                    <li class="schedule-item">
-                        <span class="schedule-time">9:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Acreditación y Bienvenida</div>
-                            <div class="schedule-speaker">Organización del evento</div>
-                        </div>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time">10:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Keynote: El Futuro de la IA</div>
-                            <div class="schedule-speaker">Speaker Principal</div>
-                        </div>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time">16:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Panel: IA y Negocios</div>
-                            <div class="schedule-speaker">Expertos de la industria</div>
-                        </div>
-                    </li>
-                    <li class="schedule-item">
-                        <span class="schedule-time">18:00</span>
-                        <div class="schedule-details">
-                            <div class="schedule-event">Cocktail de Networking</div>
-                            <div class="schedule-speaker">Patrocinadores</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="visual-banner">
-            <div class="container">
-                <div class="video-responsive-container">
-                    <iframe src="https://www.youtube.com/embed/gCwWVbdDvBg?si=hrWTQRgb0eB6Fov3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="visual-banner-cta">
-                    <a href="project-list" class="hero-cta">Ver Proyectos</a>
-                </div>
-            </div>
-        </section>
 
         <section class="community-section">
             <div class="container">
-                <div class="community-header">
-                    <h2 class="section-title">Speakers</h2>
-                    <p class="community-subtitle">Conoce a nuestros expertos, speakers y mentores.</p>
-                </div>
-
-                <div class="helpers-logos">
-                    <div id="marquee">
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/aiwkndlogo.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/utn-bg-remove.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/aiwkndlogo.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/alfa-vertical.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/aiwkndlogo.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/utn-bg-remove.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/aiwkndlogo.png"
-                                alt="" />
-                        </a>
-                        <a
-                            href="#"
-                            target="_blank"
-                            title="">
-                            <img
-                                src="public/images/alfa-vertical.png"
-                                alt="" />
-                        </a>
-                    </div>
-                    <div class="shadow__right"></div>
-                    <div class="shadow__left"></div>
-                </div>
-
-                <div class="collaborators-grid">
-                    <div class="collaborator-card">
-                        <div class="card-image-container">
-                            <img src="https://i.pravatar.cc/400?img=5" alt="Foto de perfil" class="collaborator-img">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="collaborator-name">Dr. Aisha Patel</h3>
-                            <div class="collaborator-role">Chief AI Scientist</div>
-                            <div class="collaborator-company">TechVision AI</div>
-                            <p class="collaborator-bio">Leading researcher in neural architecture search and automated machine learning.</p>
-                            <a href="#" class="social-link" aria-label="LinkedIn Dr. Aisha Patel">
-                                <!-- ícono SVG -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="collaborator-card">
-                        <div class="card-image-container">
-                            <img src="https://i.pravatar.cc/400?img=12" alt="Foto de perfil" class="collaborator-img">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="collaborator-name">Juan Pérez</h3>
-                            <div class="collaborator-role">Full Stack Dev</div>
-                            <div class="collaborator-company">Mercado Libre</div>
-                            <p class="collaborator-bio">Especialista en escalabilidad y arquitectura de software distribuido.</p>
-                            <a href="#" class="social-link" aria-label="LinkedIn Juan Pérez">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Más collaborator-cards limpias y coherentes -->
-                    <div class="collaborator-card">
-                        <div class="card-image-container">
-                            <img src="https://i.pravatar.cc/400?img=9" alt="Foto de perfil" class="collaborator-img">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="collaborator-name">Sofía Martínez</h3>
-                            <div class="collaborator-role">Venture Capitalist</div>
-                            <div class="collaborator-company">Mendoza Ventures</div>
-                            <p class="collaborator-bio">Inversora ángel enfocada en startups de IA en Latinoamérica.</p>
-                            <a href="#" class="social-link" aria-label="LinkedIn Sofía Martínez">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Se pueden añadir más tarjetas siguiendo el mismo patrón -->
-                </div>
             </div>
-        </section>
-
-        <hr style="border-color: rgba(255,255,255,0.1); max-width: 1000px; margin: 0 auto; opacity: 0.3;">
-
-        <section class="cta-ready">
-            <div class="container">
-                <h2 class="cta-ready-title">¿Listo para innovar?</h2>
-                <a href="register" class="cta-ready-button">¡Registrarme ahora!</a>
+            <div class="community-header">
+                <h2 class="section-title">Speakeners</h2>
+                <p class="community-subtitle">Aprende de expertos de la industria y líderes de opinión</p>
             </div>
-        </section>
+
+            <div class="collaborators-grid">
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Alejandro Bacic.png" alt="Foto de perfil"
+                            class="collaborator-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Alejandro Bacic</h3>
+                        <div class="collaborator-role">AIWKND</div>
+                        <br>
+                        <p class="collaborator-bio">AI FUTURO - ICONNECT</p>
+
+                    </div>
+                </div>
+
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Damian Kesler.png" alt="Foto de perfil"
+                            class="collaborator-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Damián Kesler</h3>
+                        <div class="collaborator-role">NOVEDADESIA.SR</div>
+                        <br>
+                        <p class="collaborator-bio">La evolución de la IA, info noticias, actualidad y usos de la
+                            IA.</p>
+
+                    </div>
+                </div>
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Antonella Calabro.png" alt="Foto de perfil"
+                            class="collaborator-img">
+                    </div>
+
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Antonella Calabró</h3>
+                        <div class="collaborator-role">Pdta. PIT REGIÓN SUR MENDOZA</div>
+                        <br>
+                        <p class="collaborator-bio">Upskills para el futuro: Cómo UX, Dev y producto construyen
+                            juntos en la era de la IA.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="collaborators-grid">
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Alejandro Alegre.png" alt="Foto de perfil"
+                            class="collaborator-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Alejandro Alegre</h3>
+                        <div class="collaborator-role">VIVA STUDIO</div>
+                        <br>
+                        <p class="collaborator-bio">IMPOSSIBLE AI NOTHING</p>
+
+                    </div>
+                </div>
+
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Lautaro Silva.png" alt="Foto de perfil"
+                            class="collaborator-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Lautaro Silva</h3>
+                        <div class="collaborator-role">SENTINEL</div>
+                        <br>
+                        <p class="collaborator-bio"></p>
+
+                    </div>
+                </div>
+
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Agus Muñoz.png" alt="Foto de perfil" class="collaborator-img">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Agus Muñoz</h3>
+                        <div class="collaborator-role">CONDOR VIEW</div>
+                        <br>
+                        <p class="collaborator-bio"></p>
+
+                    </div>
+                </div>
+
+                <div class="collaborator-card">
+                    <div class="card-image-container">
+                        <img src="public/images/speakers/Mauro Rojas.png" alt="Foto de perfil" class="collaborator-img">
+                        <!--<video src="public/images/speakers" class="video_flash" autoplay mute />-->
+                    </div>
+                    <div class="card-content">
+                        <h3 class="collaborator-name">Mauro Rojas</h3>
+                        <div class="collaborator-role">ALPHA DOCERE</div>
+                        <br>
+                        <p class="collaborator-bio"></p>
+
+                    </div>
+                </div>
+                <!-- Más collaborator-cards limpias y coherentes -->
+            </div>
     </div>
+    </section>
+
+    </div>
+
+    <section class="schedule-section">
+        <div class="container">
+            <h2 class="section-title">Cronograma del Evento:</h2>
+
+            <ul class="schedule-list">
+                <div class="date-pill">
+                    <span class="date-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                        </svg>
+                    </span>
+                    <span class="date-text">Viernes 12 de Diciembre, 2025</span>
+                </div>
+                <li class="schedule-item">
+                    <span class="schedule-time">09:30–09:40</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Bienvenida y Recibimiento</div>
+                        <div class="schedule-speaker">Recepción de asistentes</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">09:45–10:00</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Networking inicial</div>
+                        <div class="schedule-speaker">Guía a espacio de networking</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">10:00–10:30</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Apertura y Homenaje</div>
+                        <div class="schedule-speaker">Autoridades UTN (Homenaje Bocha Pessano)</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">10:35–10:55</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Presentación AI DAY</div>
+                        <div class="schedule-speaker">Equipo Aiweekend, Polo Tic, Alpha Docere</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">11:00–11:20</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Presentación Condor View</div>
+                        <div class="schedule-speaker">Jóvenes UTN</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">11:20–11:40</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Presentación Sentinel</div>
+                        <div class="schedule-speaker">Jóvenes UTN</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">12:10–12:30</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Presentación Aiweekend</div>
+                        <div class="schedule-speaker">Ale Bacic</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">12:35–12:55</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Presentación Aiweekend</div>
+                        <div class="schedule-speaker">Damián Keler</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">13:20–13:45</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Pit Región Sur Mendoza</div>
+                        <div class="schedule-speaker">Antonela Calabro</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">13:50–14:00</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Interacción con público</div>
+                        <div class="schedule-speaker">Alejandro Alegre</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">15:20–15:40</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Proyecto Los Reyunos</div>
+                        <div class="schedule-speaker">Melina</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">15:40–17:45</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Workshops Rotativos</div>
+                        <div class="schedule-speaker">Pitch, Sostenibilidad, Podcast, Proyecto UTN</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">18:00-18:30</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Cierre día 1 / Coffee Final</div>
+                        <div class="schedule-speaker">Fin de jornada</div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="schedule-list">
+                <div class="date-pill">
+                    <span class="date-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                        </svg>
+                    </span>
+                    <span class="date-text">Sábado 13 de Diciembre, 2025</span>
+                </div>
+                <li class="schedule-item">
+                    <span class="schedule-time">09:30–09:40</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Bienvenida</div>
+                        <div class="schedule-speaker">Recepción de asistentes</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">09:45–10:00</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Recibimiento</div>
+                        <div class="schedule-speaker">Guía a espacio de networking inicial</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">10:00–10:30</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Presentación Alpha Docere</div>
+                        <div class="schedule-speaker">Cosecha debate viernes</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">10:50–11:40</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Grupo 1</div>
+                        <div class="schedule-speaker">5 primeras presentaciones</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">11:50–12:40</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Grupo 2</div>
+                        <div class="schedule-speaker">5 siguientes presentaciones</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">12:55–13:45</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Grupo 3</div>
+                        <div class="schedule-speaker">5 siguientes presentaciones</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">13:45–14:10</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Palabras UTN / Bienvenidos al mundo laboral</div>
+                        <div class="schedule-speaker">Pit Región Sur Mendoza</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">14:20–15:05</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Grupo 4</div>
+                        <div class="schedule-speaker">5 siguientes presentaciones</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">15:10–16:00</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Espacio networking intencionado</div>
+                        <div class="schedule-speaker">PoloTic / Estudiantes UTN</div>
+                    </div>
+                </li>
+
+                <li class="schedule-item">
+                    <span class="schedule-time">16:00–18:00</span>
+                    <div class="schedule-details">
+                        <div class="schedule-event">Celebración</div>
+                        <div class="schedule-speaker">Posible ASADO post evento / Uso instalaciones UTN</div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="helpers-logos">
+            <div id="marquee">
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/aiwkndlogo.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/utn-bg-remove.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/aiwkndlogo.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/alfa-vertical.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/aiwkndlogo.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/utn-bg-remove.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/aiwkndlogo.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/alfa-vertical.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/aiwkndlogo.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/utn-bg-remove.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/aiwkndlogo.png" alt="" />
+                </a>
+                <a href="#" target="_blank" title="">
+                    <img src="public/images/alfa-vertical.png" alt="" />
+                </a>
+                
+            </div>
+            <div class="shadow__right"></div>
+            <div class="shadow__left"></div>
+    </section>
 
     <section class="ai-community-full">
         <div class="ai-community-full-content">
@@ -337,9 +479,11 @@
             </div>
         </div>
     </section>
-
     <?php require_once("components/nav.php"); ?>
     <?php require_once("components/footer.php"); ?>
+
 </body>
+
+
 
 </html>
